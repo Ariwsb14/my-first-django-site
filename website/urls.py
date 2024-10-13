@@ -1,8 +1,10 @@
-from .views import first_text
+from .views import *
 from django.urls import path 
 
 urlpatterns = [
 
-    path('',first_text)
+    path('',index),
+    path('about', about),
+    path('contact', contact)
 
 ]
