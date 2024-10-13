@@ -11,4 +11,7 @@ def about(request):
 
 def contact(request):
     return render(request , 'website/contact.html')
+
+def elements(request):
+    return render(request , 'website/elements.html')
 # Create your views here.
