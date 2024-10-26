@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Post(models.Model):
-    image = models.ImageField(upload_to='blog/')
+    image = models.ImageField(upload_to='blog/' , default='media/blog/default.jpg')
     author = models.ForeignKey(User, on_delete=models.SET_NULL , null=True)
     title = models.CharField(max_length=255)
     content = models.TextField()
