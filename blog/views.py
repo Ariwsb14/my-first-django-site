@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render ,  get_object_or_404
 from blog.models import Post
 import datetime
 
@@ -8,7 +8,9 @@ def home(request):
     return render(request , 'blogs/blog-home.html' , context)   
 
 
-def single(request):
-    return render(request , 'blogs/blog-single.html')
+def single(request,pid):
+    post = get_object_or_404(Post, pk=pid, status=True)
+    context = {'post':post}
+    return render(request , 'blogs/blog-single.html', context)
 
 # Create your views here.
