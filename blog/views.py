@@ -4,13 +4,16 @@ import datetime
 
 def home(request):
     posts = Post.objects.filter(published_date__lte=datetime.datetime.now() , status=True)
-    context = {'posts':posts}
+    pop_posts = sorted(posts, key=lambda x: x.counted_view, reverse=True)
+    context = {'posts':posts , 'pop_posts':pop_posts }
     return render(request , 'blogs/blog-home.html' , context)   
 
 
 def single(request,pid):
     posts = Post.objects.filter(published_date__lte=datetime.datetime.now(),status=True)
     post = get_object_or_404(Post, pk=pid, status=True)
+    post.counted_view += 1
+    post.save() 
     index = 0
     for i in range(len(posts)):
         if posts[i].id == post.id:
@@ -27,14 +30,16 @@ def single(request,pid):
     if index > 0:
         next = posts[index-1]
     else:
-        None    
+        None  
+
+    pop_posts = sorted(posts, key=lambda x: x.counted_view, reverse=True)  
          
         
     
     
         
     
-    context = {'post':post , 'index':index , 'perv': perv , 'next':next }
+    context = {'post':post , 'index':index , 'perv': perv , 'next': next , 'pop_posts':pop_posts }
     return render(request , 'blogs/blog-single.html', context)
 
 # Create your views here.
