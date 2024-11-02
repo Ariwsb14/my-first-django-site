@@ -7,5 +7,6 @@ urlpatterns = [
     path('', home , name='index'),
     path('<int:pid>', single , name='single'),
     path('category/<str:cat_name>', home , name='category'),
+    path('search/', search , name='search')
 
 ]
