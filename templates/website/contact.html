@@ -19,6 +19,15 @@
 <!-- End banner Area -->
 
 <!-- Start contact-page Area -->
+{% if  messages %}
+		<ul class="messages">
+			{% for message in messages %}
+				<li  class="{{message.tags}}" style="text-align: center; background-color:#f8b600; padding-top: 25px ; padding-bottom: 25px; color: white; font-size: 22px;">
+					{{message}}
+				</li>
+			{% endfor %}	
+		</ul>
+{% endif %}
 <section class="contact-page-area section-gap">
 	<div class="container">
 		<div class="row">
@@ -54,6 +63,7 @@
 					</div>
 				</div>
 			</div>
+				
 			<div class="col-lg-8">
 				 <form class="form-area contact-form text-right"  action="{% url 'website:contact'%}" method="post">
 					<div class="row">
@@ -70,7 +80,7 @@
 
 							<input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''"
 								onblur="this.placeholder = 'Enter subject'" class="common-input mb-20 form-control"
-								required="" type="text">
+							 type="text">
 						</div>
 						<div class="col-lg-6 form-group">
 							<textarea class="common-textarea form-control" name="message" placeholder="Enter Messege"
