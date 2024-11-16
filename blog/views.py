@@ -3,11 +3,13 @@ from blog.models import Post
 from django.core.paginator import Paginator , PageNotAnInteger , EmptyPage
 import datetime
 
-def home(request,cat_name=None):
+def home(request,cat_name=None, tag_name=None):
     posts = Post.objects.filter(published_date__lte=datetime.datetime.now() , status=True)
     pop_posts = sorted(posts, key=lambda x: x.counted_view, reverse=True)
     if cat_name:
         posts = posts.filter(category__name=cat_name)
+    if tag_name:
+        posts = posts.filter(tags__name__in=[tag_name])        
     posts = Paginator(posts,3)
     try:
         page_number = request.GET.get('page')
