@@ -1,4 +1,4 @@
-from website.models import contact
+from website.models import contact , newsletter
 from django.forms import ModelForm
 
 class ContactForm(ModelForm):
@@ -6,6 +6,13 @@ class ContactForm(ModelForm):
         model = contact
         
         fields = '__all__'
+
+class newsform(ModelForm):
+    class Meta:
+        model = newsletter
+        fields = '__all__'
+
+
     
         
 
