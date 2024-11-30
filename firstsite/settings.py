@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'robots',
     'taggit',
     'debug_toolbar',
+    'accounts',
     
 ]
 

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <!-- Website - www.codingnepalweb.com -->
 <html lang="en">
@@ -14,8 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Login & Signup Form HTML CSS | CodingNepal</title>
-    <link rel="stylesheet" href="login.css" />
-    <script src="../custom-scripts.js" defer></script>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <script src="{% static 'js/../custom-scripts.js' %}" defer></script>
   </head>
   <body>
     <section class="wrapper">
@@ -38,7 +39,7 @@
         <form action="#">
           <input type="text" placeholder="Email address" required />
           <input type="password" placeholder="Password" required />
-          <a href="#">Forgot password?</a>
+          <a href="{% url 'accounts:forgot-pass' %}">Forgot password?</a>
           <input type="submit" value="Login" />
         </form>
       </div>

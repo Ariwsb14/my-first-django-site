@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <!-- Website - www.codingnepalweb.com -->
 <html lang="en">
@@ -14,8 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Forgot password</title>
-    <link rel="stylesheet" href="login.css" />
-    <script src="../custom-scripts.js" defer></script>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <script src="{% static 'js/../custom-scripts.js' %}" defer></script>
   </head>
   <body>
     <section class="wrapper">
@@ -28,6 +29,7 @@
             <input type="checkbox" id="signupCheck" />
             <label for="signupCheck">I accept all terms & conditions</label>
           </div>
+          <a href="{% url 'accounts:login' %}" style="color: #fff;">signup or login</a>
           <input type="submit" value="Signup" />
         </form>
       </div>
