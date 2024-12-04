@@ -13,7 +13,7 @@
     />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
     <title>Login & Signup Form HTML CSS | CodingNepal</title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <script src="{% static 'js/../custom-scripts.js' %}" defer></script>
@@ -22,10 +22,12 @@
     <section class="wrapper">
       <div class="form signup">
         <header>Signup</header>
-        <form action="#">
-          <input type="text" placeholder="username" name="username" required />
-          <input type="text" placeholder="Email address" name = "email" required />
-          <input type="password" placeholder="Password" name ="password"required />
+        <form action="{% url 'accounts:login' %}">
+          {% csrf_token %}
+          <input type="text" placeholder="username" name="reusername" required />
+          <input type="text" placeholder="Email address" name = "reemail" required />
+          <input type="password" placeholder="Password" name ="repassword1"required />
+          <input type="password" placeholder="Password confermaion" name ="repassword2"required />
             <div class="checkbox">
             <input type="checkbox" id="signupCheck" />
             <label for="signupCheck">I accept all terms & conditions</label>
@@ -36,9 +38,10 @@
 
       <div class="form login">
         <header>Login</header>
-        <form action="#">
-          <input type="text" placeholder="Email address" required />
-          <input type="password" placeholder="Password" required />
+        <form action="{% url 'accounts:login' %}" method="post">
+          {% csrf_token %}
+          <input type="text" placeholder=" username or Email address" name = 'username' required />
+          <input type="password" placeholder="Password" name="password" required />
           <a href="{% url 'accounts:forgot-pass' %}">Forgot password?</a>
           <input type="submit" value="Login" />
         </form>

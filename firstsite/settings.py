@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'taggit',
     'debug_toolbar',
     'accounts',
+     'django_extensions',
     
 ]
 
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
 
 ROOT_URLCONF = 'firstsite.urls'
 
@@ -92,7 +94,8 @@ DATABASES = {
     }
 }
 
-
+LOGIN_URL = '/login'
+AUTH_USER_MODEL = 'accounts.CustomUser'
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -144,3 +147,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS =[
     '127.0.0.1',
 ]
+
+

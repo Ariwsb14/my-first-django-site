@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from taggit.managers import TaggableManager
+from accounts.models import CustomUser
 
 class category(models.Model):
     name = models.CharField(max_length=255)
@@ -12,7 +13,7 @@ class category(models.Model):
 
 class Post(models.Model):
     image = models.ImageField(upload_to='blog/' , default='media/blog/default.jpg')
-    author = models.ForeignKey(User, on_delete=models.SET_NULL , null=True)
+    author = models.ForeignKey(CustomUser, on_delete=models.SET_NULL , null=True)
     title = models.CharField(max_length=255)
     content = models.TextField()
     category = models.ManyToManyField(category)
