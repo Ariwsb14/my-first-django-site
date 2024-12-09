@@ -22,7 +22,7 @@
     <section class="wrapper">
       <div class="form signup">
         <header>Signup</header>
-        <form action="{% url 'accounts:login' %}" method="post">
+        <form action="{% url 'login' %}" method="post">
           {% csrf_token %}
           <!-- <input type="text" placeholder="username" name="reusername" required /> -->
           <input type="text" placeholder="username" name = "reusername" required />
@@ -38,11 +38,11 @@
 
       <div class="form login">
         <header>Login</header>
-        <form action="{% url 'accounts:login' %}" method="post">
+        <form action="{% url 'login' %}" method="post">
           {% csrf_token %}
           <input type="text" placeholder="Email address" name = 'username' required />
           <input type="password" placeholder="Password" name="password" required />
-          <a href="{% url 'accounts:forgot-pass' %}">Forgot password?</a>
+          <a href="{% url 'password-reset' %}">Forgot password?</a>
           <input type="submit" value="Login" />
         </form>
       </div>
